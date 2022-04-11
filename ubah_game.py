@@ -1,9 +1,8 @@
 from csv_parser import readFile, replaceFile
+from Function import length
 
 store_file=readFile("game.csv")
-count=0
-for i in store_file:
-    count+=1
+count=length(store_file)
 
 #Meminta ID game yang akan diubah
 #Akan terus mengulang jika ID game tidak ditemukan

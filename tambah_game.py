@@ -1,12 +1,11 @@
 from csv_parser import readFile, writeFile
+from Function import length
 
 #Load csv file (Temporary karena masih blm ada save() dan load())
 File1=readFile("game.csv")
 
 #Menentukan jumlah elemen (jumlah game) yang ada pada file
-count=0
-for i in File1:
-    count+=1
+count=length(File1)
 
 #Meminta input data game
 #Akan terus mengulang jika input yang dimasukkan kosong atau tidak sesuai

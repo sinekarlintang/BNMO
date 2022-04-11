@@ -1,10 +1,7 @@
 from csv_parser import readFile, writeFile
+from Function import length
+
 #Menghitung elemen list
-def jumlah(X):
-    jum=0
-    for i in X:
-        jum+=1
-    return jum
 
 #Memutarbalikkan urutan list
 def reversed(X):
@@ -19,10 +16,10 @@ def sort_list(X):
         if int(X[i][1]) > int(X[i+1][1]):
             X+=[X[i]]
             temp=X[0:i+1]
-            if jumlah(temp)==1:
+            if length(temp)==1:
                 X=X[i+1:]
             else:
-                X=temp[:jumlah(temp)-1] + X[i+1:]
+                X=temp[:length(temp)-1] + X[i+1:]
             X=sort_list(X)
             break
     X=sort_ID(X)
