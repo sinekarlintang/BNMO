@@ -1,7 +1,7 @@
 import csv
 import Function
 
-def
+
 
 def register():
     file = open("user.csv","r+", newline='')
