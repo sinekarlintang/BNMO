@@ -53,7 +53,7 @@ def winningState():
     else:
         return "#"
 
-def penuh():
+def full():
     count=0
     for i in range (3):
         for j in range (3):
@@ -110,7 +110,7 @@ while True:
         print(player2, "(O) WINS!")
         break
     else:
-        if penuh():
+        if full():
             showPapan()
             print("Its a TIE!")
             break
