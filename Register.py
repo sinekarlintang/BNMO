@@ -1,6 +1,7 @@
 import csv
 import Function
 
+import Parser
 
 
 def register():
@@ -15,3 +16,13 @@ def register():
     saldo = 0
 
     userWrite.writerow([id,username,nama,password,role,saldo])
+
+def login():
+    inputUsername = str(input())
+    id = Parser.cariID("username", inputUsername)
+    if id == "x":
+        print("Tidak ada username tersebut")
+    else:
+        nama = Parser.cari("nama", id)
+        print(f"Selamat Datang, {nama}!")
+

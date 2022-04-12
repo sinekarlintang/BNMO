@@ -1,3 +1,3 @@
 import Register
 
-Register.register()
+Register.login()
