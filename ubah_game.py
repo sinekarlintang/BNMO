@@ -1,6 +1,8 @@
 from csv_parser import readFile, replaceFile
 from Function import length
 
+#Algoritma Utama
+
 store_file=readFile("game.csv")
 count=length(store_file)
 

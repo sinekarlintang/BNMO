@@ -1,3 +1,6 @@
+# Kumpulan Fungsi dan Prosedur
+
+#Menampilkan status papan
 def showPapan():
     print("Board status: ")
     for i in range (3):
@@ -8,7 +11,9 @@ def showPapan():
                 print(papan[i][j])
     print()
 
+#Menentukan jika ada pemain sudah ada yg menang
 def winningState():
+    #Inisialisasi
     XWin=["X", "X", "X"]
     OWin=["O", "O", "O"]
     winX=False
@@ -53,6 +58,7 @@ def winningState():
     else:
         return "#"
 
+#Menentukan apakah papan sudah penuh
 def full():
     count=0
     for i in range (3):
@@ -69,38 +75,53 @@ def full():
 
 ###########################################################################
 
+#Algoritma Utama
+
+#Tampilan pesan awal
 print("Welcome to Tic Tac Toe!")
+
+#Meminta input nama pemain
 print("Please input your names!")
 player1=input("Player 1 (X): ")
 player2=input("Player 2 (O): ")
-print("Let the game start!")
 
+#Inisialisasi papan
+print("Let the game start!")
 papan=[["#" for i in range (3)]for i in range (3)]
 turns=1
+
+#Pengisian papan
 while True:
     showPapan()
+    #Menentukan apakah giliran pemain 1 atau 2
     if turns%2==1:
         print(player1 + "'s (X) turn!")
     else:
         print(player2 + "'s (O) turn!")
     
+    #Mengisi kotak papan dan akan mengullang terus hingga input valid
     while True:
+        #Meminta koordinat kotak yang ingin diisi
         print("Type the coordinates: ")
         X=int(input("X: "))
         Y=int(input("Y: "))
+
+        #Menentukan apakah input valid atau tidak
         if X>3 or X<=0 or Y>3 or Y<=0:
             print("Invalid coordinates! Please try again\n")
+        #Menentukan apakah kotak sudah diisi atau belum
         elif papan[Y-1][X-1]=="X" or papan[Y-1][X-1]=="O":
             print("Coordinates already used! Please try again\n")
         else:
             break
-
+    
+    #Mengisi kotak bergantung pada giliran pemain
     if turns%2==1:
         papan[Y-1][X-1]="X"
     else:
         papan[Y-1][X-1]="O"
     
-    #Kondisi permainan
+    #Menentukan kondisi permainan
     if winningState()=="X":
         print()
         print(player1, "(X) WINS!")
@@ -110,6 +131,7 @@ while True:
         print(player2, "(O) WINS!")
         break
     else:
+        #Menentukan apakah papan penuh atau tidak
         if full():
             showPapan()
             print("Its a TIE!")
