@@ -1,15 +1,15 @@
-#Membaca data file dan dirubah menjadi array matriks
-# X: nama file csv (str; Ex: "game.csv")
+from Function import length
+
+#Membaca data file dan dirubah menjadi array matriks 2D
+# X: Nama file csv (str; File harus ada; Ex: "game.csv")
 def readFile(X):
     with open(X, "r+") as file1:
         #Inisialisasi
         isi=file1.readlines()
-        rows=0
         category=1
 
         #Menghitung jumlah rows/baris
-        for i in isi:
-            rows+=1
+        rows=length(isi)
 
         #Menghitung jumlah karakter tiap baris
         size=[-1 for i in range (rows)]
@@ -42,28 +42,22 @@ def readFile(X):
     return isi
 
 #Menambah atau meng-append data baru ke file dan dirubah dari bentuk matriks menjadi semicolon-seperated-value
-# X: nama file csv (str; Ex: "game.csv");   Y=Data yang ingin dimasukkan (dalam bentuk matriks)
-def writeFile(X, Y):
+# X: Nama file csv (str; File harus ada; Ex: "game.csv");   Y=Data yang ingin dimasukkan (dalam bentuk array 1D)
+def appendFile(X, Y):
     with open(X, "a+") as file1:
         file1.write("\n")
-        category=0
-        for i in Y:
-            category+=1
+        category=length(Y)
         
         for i in range (category):
             file1.write(Y[i])
             if i!=(category-1):
                 file1.write(";")
 
-#Mengganti SELURUH data pada file dengan yang baru (Dipakai ketika ingin merubah suatu data yang sudah ada)
-# X: nama file csv (str; Ex: "game.csv");   Y=Data yang ingin dimasukkan (dalam bentuk matriks);
-# Z=Jumlah kategori (int)
-def replaceFile(X, Y, Z):
+#Mengganti SELURUH data/meng-overwrite data pada file dengan yang baru JIKA FILE SUDAH ADA (Dipakai ketika ingin merubah suatu data yang sudah ada)
+#Membuat file baru berisi data JIKA FILE TIDAK ADA
+def writeFile(X, Y, Z): # X: Nama file csv (str; File boleh ada dan tidak; Ex: "game.csv");Y=Data yang ingin dimasukkan (Harus dalam bentuk matriks 2D); Z=Jumlah kategori (int)
     #Menghitung jumlah baris
-    isi=readFile(X)
-    count=0
-    for i in isi:
-        count+=1
+    count=length(Y)
 
     with open(X, 'w+') as file1:
         for i in range (count):
@@ -72,4 +66,4 @@ def replaceFile(X, Y, Z):
                 if j!=(Z-1):
                     file1.write(";")
             if i!=(count-1):
-                file1.write("\n")      
+                file1.write("\n")
