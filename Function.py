@@ -4,6 +4,4 @@ def length(x):
     for i in x:
         count += 1
     return count
-
-
-
+    

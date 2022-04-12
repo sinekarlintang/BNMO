@@ -1,3 +1,4 @@
+from Function import length
 #Membaca data file dan dirubah menjadi array matriks
 # X: nama file csv (str; Ex: "game.csv")
 def readFile(X):
@@ -72,4 +73,34 @@ def replaceFile(X, Y, Z):
                 if j!=(Z-1):
                     file1.write(";")
             if i!=(count-1):
-                file1.write("\n")      
+                file1.write("\n")  
+
+# def cari digunakan untuk mencari elemen pada suatu file csv
+# contoh : cari(readFile(user.csv), "id", "3", "username")
+# artinya : pada file user.csv, ingin dicari username pengguna dengan id "3"
+def cari(file, kategori, cari, hasil):
+    kategoriFound = False
+    while kategoriFound == False:
+        for j in range(length(file[0])):
+            if file[0][j] == kategori:
+                x = j
+                kategoriFound = True
+    hasilFound = False
+    while hasilFound == False:
+        for k in range(length(file[0])):
+            if file[0][k] == hasil:
+                y = k
+                hasilFound = True
+    found = False
+    for i in range(length(file[0])-2):
+        if file[i][x] == cari:
+            result = file[i][y]
+            found = True
+            return result
+        elif file[i][x] != cari:
+            pass
+
+    if not found:    
+        return "x"
+    else:
+        return result
