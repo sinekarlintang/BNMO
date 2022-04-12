@@ -41,7 +41,7 @@ def readFile(X):
             isi[x]=Temp
     return isi
 
-#Menambah data baru ke file dan dirubah dari bentuk matriks menjadi semicolon-seperated-value (Dipakai ketika ingin menambah atau meng-append data baru ke file)
+#Menambah atau meng-append data baru ke file dan dirubah dari bentuk matriks menjadi semicolon-seperated-value
 # X: nama file csv (str; Ex: "game.csv");   Y=Data yang ingin dimasukkan (dalam bentuk matriks)
 def writeFile(X, Y):
     with open(X, "a+") as file1:
@@ -58,7 +58,7 @@ def writeFile(X, Y):
 #Mengganti SELURUH data pada file dengan yang baru (Dipakai ketika ingin merubah suatu data yang sudah ada)
 # X: nama file csv (str; Ex: "game.csv");   Y=Data yang ingin dimasukkan (dalam bentuk matriks);
 # Z=Jumlah kategori (int)
-def replaceFile(X, Y, Z): 
+def replaceFile(X, Y, Z):
     #Menghitung jumlah baris
     isi=readFile(X)
     count=0
