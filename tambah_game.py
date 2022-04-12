@@ -1,6 +1,8 @@
 from csv_parser import readFile, writeFile
 from Function import length
 
+#Algoritma Utama
+
 #Load csv file (Temporary karena masih blm ada save() dan load())
 File1=readFile("game.csv")
 

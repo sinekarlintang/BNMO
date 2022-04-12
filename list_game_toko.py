@@ -1,7 +1,7 @@
 from csv_parser import readFile, writeFile
 from Function import length
 
-#Menghitung elemen list
+#Kumpulan Fungsi dan Prosedur 
 
 #Memutarbalikkan urutan list
 def reversed(X):
@@ -60,6 +60,10 @@ def show_list(X, Y):
                 print(store_files[(sorted[i][0]-1)][j], "|", end=" ")
             else:
                 print(store_files[(sorted[i][0])-1][j])
+
+##################################################################################
+
+#Algoritma Utama
 
 #Load csv file (Temporary karena masih blm ada save())
 store_files=readFile("game.csv")
