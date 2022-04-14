@@ -1,11 +1,13 @@
 from time import localtime, time
 from Function import length
 
-#Mencaru output LCG (Linear Congruential Generator)
+#Mencari output LCG (Linear Congruential Generator)
 def LCG(Y):
+    #Inisialisasi constant dengan menggunakan waktu
     a=localtime().tm_sec**localtime().tm_min
     m=time()
 
+    #Menentukan output LCG
     cng=(a*Y)%m
     return str(int(cng))
 
