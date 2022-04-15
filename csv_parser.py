@@ -99,6 +99,11 @@ def cari(file, kategori, cari, hasil):
     else:
         return result
 
+# Mengganti suatu value
+# file : matrix file tujuan, misal "readFile(user.csv)"
+# kategori : kategori yang ingin diganti, misal "saldo"
+# id : id, misal "GAME001", "1"
+# newvalue : value baru
 def changevalue(file, kategori, id, newvalue):
     kategoriFound = False
     while kategoriFound == False:
@@ -110,6 +115,9 @@ def changevalue(file, kategori, id, newvalue):
         if file[i][0] == id:
             file[i][x] = newvalue
 
+# Menambahkan data pada matrix file
+# file : matrix file yang ingin ditambahkan, misal "readFile(user.csv)"
+# stuff : data yang ingin ditambahkan dalam bentuk array
 def appendMatrix(file, stuff):
     matrix = [0 for i in range (length(file)+1)]
     for j in range(length(matrix)-1):
