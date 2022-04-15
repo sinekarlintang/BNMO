@@ -1,4 +1,5 @@
-import Register
-from csv_parser import readFile, cari
+import Commands
+from csv_parser import readFile, cari, changevalue
+from Function import length
 
-Register.register()
+Commands.register()
