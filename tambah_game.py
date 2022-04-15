@@ -1,4 +1,4 @@
-from csv_parser import readFile, writeFile
+from csv_parser import readFile, appendFile
 from Function import length
 
 #Algoritma Utama
@@ -53,7 +53,7 @@ else:
 new_Data=[game_id, game_Name, game_Genre, str(game_release), str(game_Price), str(game_Stock)]
 
 #Menambahkan variabel data baru game ke dalam csv file (Utk sekarang diimplementasikan langsung ke dalam csv karena blm ada save() dan load())
-writeFile("game.csv", new_Data)
+appendFile("game.csv", new_Data)
 
 #Menampilkan pesan keberhasilan dalam penambahan game
 print("Selamat! Berhasil menambahkan '", game_Name, "'")

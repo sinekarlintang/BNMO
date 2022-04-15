@@ -82,6 +82,8 @@ for i in range (count):
 
 #Menentukan pilihan skema sorting yang diinput
 sort_type=input("Skema sorting: ")
+print()
+print("ID | Name | Kategori | Tahun | Stok")
 if sort_type=="":
     asc_ID(store_files)
 elif sort_type.lower()=="tahun+":
