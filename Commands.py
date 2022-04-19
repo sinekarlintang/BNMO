@@ -5,9 +5,9 @@ def register(folder):
     print("Daftarkan akun Anda")
     userfile = folder[3]
     id = length(userfile)
-    nama = str(input())
-    username = str(input())
-    password = str(input())
+    nama = str(input("Masukkan nama : "))
+    username = str(input("Masukkan username : "))
+    password = str(input("Masukkan password : "))
     role = "user"
     saldo = 0
     cekUsername = cari(userfile, "username", username, "id")
@@ -21,12 +21,12 @@ def register(folder):
 def login(folder):
     print("Selamat datang kembali.")
     file = folder[3]
-    inputUsername = str(input())
-    inputPassword = str(input())
+    inputUsername = str(input("Masukkan username : "))
+    inputPassword = str(input("Masukkan password"))
     password = cari(file, "username", inputUsername, "password")
-    nama = cari(file, "username", inputUsername, "nama")
+    id = cari(file, "username", inputUsername, "id")
     if password == inputPassword:
-        print(f"Selamat Datang, {nama}!")
+        return id
     else:
         print("Password atau username salah atau tidak ditemukan.")
         login(folder)

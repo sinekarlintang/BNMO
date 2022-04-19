@@ -130,6 +130,8 @@ def save(stuff):
     choice = str(input("Apakah perubahan ingin disimpan? (Y/N) : "))
     if choice == "Y":
         folder = str(input("Masukkan nama folder : "))
+        if not os.path.exists(folder):
+            os.mkdir(folder)
         writeFile(f"{folder}/game.csv", stuff[0], 6)
         writeFile(f"{folder}/kepemilikan.csv", stuff[1], 2)
         writeFile(f"{folder}/riwayat.csv", stuff[2], 5)

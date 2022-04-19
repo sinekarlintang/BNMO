@@ -4,7 +4,7 @@ from datetime import date
 today = date.today()
 tahun = today.year
 #
-def isGameValid (game_id) :
+def isGameValid (game_id, game) :
 # fungsi yang digunakan untuk mencari game
 # I.S game id 
 # F.S Boolean True/False
@@ -24,7 +24,7 @@ def isGameValid (game_id) :
     else:
         return False
 
-def isSaldoCukup (user_id_login, game_id) :
+def isSaldoCukup (user_id_login, game_id, user, game) :
 # fungsi yang digunakan untuk cek saldo cukup
 # I.S id user yang login dan id game
 # F.S Boolean True/False
@@ -54,7 +54,7 @@ def isSaldoCukup (user_id_login, game_id) :
     elif found1 == False :
         return False
 
-def isSudahBeli (user_id_login, game_id) :
+def isSudahBeli (user_id_login, game_id, kepemilikan) :
 # fungsi yang mengecek apakah barang sudah dimiliki
 # I.S id user yang login dan id barang
 # F.S Boolean True/False 
@@ -72,7 +72,7 @@ def isSudahBeli (user_id_login, game_id) :
     else:
         return False
     
-def hargagame (game_id) :
+def hargagame (game_id, game) :
 # fungsi yang digunakan untuk mengeluarkan harga game
 # I.S id user yang login dan id game
 # F.S harga game
@@ -89,7 +89,7 @@ def hargagame (game_id) :
         return game[i][4]
 
      
-def isStockValid (game_id) :
+def isStockValid (game_id, game) :
 # fungsi yang digunakan untuk cek stock barang
 # I.S id barang
 # F.S Boolean True/False
@@ -107,7 +107,7 @@ def isStockValid (game_id) :
     else : 
         return False
 
-def ubahstock(game_id) :
+def ubahstock(game_id, game) :
 # prosedur ubahstock berfungsi untuk mengurangi stock game setelah user membeli game tsb.
 # I.S game id terdefinisi
 # F.S jumlah stock game berkurang
@@ -127,7 +127,7 @@ def ubahstock(game_id) :
         game[i][5] = str(total)
         return game
 
-def ubahsaldo(user_id,game_id) :
+def ubahsaldo(user_id,game_id,game, user) :
 # prosedur ubahsaldo berfungsi untuk mengubah saldo user setelah membeli game
 # I.S user id dan game id terdefinisi
 # F.S jumlah saldo user berkurang sebanyak harga game
@@ -185,7 +185,7 @@ def ubahkepemilikan (kepemilikan,arraybaru) :
             break
     return x
 
-def Game_name(game_id) :
+def Game_name(game_id, game) :
 # fungsi untuk merubah game id menjadi nama game
 # I.S game id tervalidasi
 # F.S nama game
@@ -204,26 +204,30 @@ def Game_name(game_id) :
 
 # Program utama
 # F08
-def buy_game() :
+def buy_game(folder, user_id) :
 # prosedur buy game berfungsi untuk membeli game 
 # I.S user id terdefinisi
 # F.S file data diupdate
+    riwayat = folder[2]
+    kepemilikan = folder[1]
+    game = folder[0]
+    user = folder[3]
     # input game id yang akan dibeli
     game_id = input("Masukkan ID Game: ")
     
     # validasi
-    valid1 = isGameValid (game_id) # cek game id valid atau tidak
-    valid2 = isSudahBeli(user_id, game_id) # cek game sudah dipunyai oleh user atau tidak
-    valid3 = isSaldoCukup(user_id, game_id) # cek saldo user cukup atau tidak
-    valid4 = isStockValid(game_id)  # cek stock game 
+    valid1 = isGameValid (game_id, game) # cek game id valid atau tidak
+    valid2 = isSudahBeli(user_id, game_id, kepemilikan) # cek game sudah dipunyai oleh user atau tidak
+    valid3 = isSaldoCukup(user_id, game_id, user, game) # cek saldo user cukup atau tidak
+    valid4 = isStockValid(game_id, game)  # cek stock game 
     
     if (valid1 == True) and (valid2 == False) and (valid3 == True) and (valid4 == True) : # jika terdapat kondisi seperti ini maka dapat dilaksanakan proses pembelian        
         # simpan ke dalam memori sementara (ntar klo dah ada save tinggal di replace file aja game.csv + user.csv nya)
-        ubahstock(game_id) # ubah stock game di dalam memori sementara
-        ubahsaldo(user_id) # ubah saldo user di dalama memori sementara
+        ubahstock(game_id, game) # ubah stock game di dalam memori sementara
+        ubahsaldo(user_id, game_id, game, user) # ubah saldo user di dalama memori sementara
         
         # Proses pengisian data2 baru ke dalam list kosong (new_data_riwayat)
-        new_data_riwayat = [game_id, Game_name(game_id), hargagame(game_id), user_id, tahun]
+        new_data_riwayat = [game_id, Game_name(game_id, game), hargagame(game_id, game), user_id, tahun]
         
         # proses pengisian data2 baru ke dalam list kosong (new_data_kepemilikan)
         new_data_kepemilikan = [game_id, user_id]
@@ -233,7 +237,7 @@ def buy_game() :
         ubahkepemilikan(kepemilikan,new_data_kepemilikan)
         
         # mencari nama game (untuk keperluan output)
-        namagame = Game_name(game_id)
+        namagame = Game_name(game_id, game)
         
         # jika berhasil dibeli, maka program akan mengeluarkan seperti yang ada di bawah ini
         print("Game " + namagame + " berhasil dibeli!") 

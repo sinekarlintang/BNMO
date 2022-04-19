@@ -1,12 +1,14 @@
-from search_game_at_store import isInputValid
+from search_my_game import isInputValid
+from Function import length
 
 #####################################################################################################
 
 # PROGRAM UTAMA 
 # F11
-def search_game_at_store() :
+def search_game_at_store(folder) :
 # prosedur ini berfungsi untuk mencari game dengan kriteria tertentu di toko
     # inisiasi input 
+    game = folder[0]
     game_id = input("Masukkan ID Game: ")
     nama_game = input("Masukkan Nama Game: ")
     harga_game = input("Masukkan Harga Game: ")

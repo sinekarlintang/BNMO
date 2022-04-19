@@ -1,4 +1,5 @@
-def adagame (user_id_login) :
+from Function import length
+def adagame (user_id_login, kepemilikan) :
 # proses untuk mengecek terdapat game yang dibeli atau tidak
 # I.S user id yang login
 # F.S Boolean True/False
@@ -6,7 +7,7 @@ def adagame (user_id_login) :
     i = 0
     found = False
     # pengecekan user id di data kepemilikan
-    while (i < len(kepemilikan)) and (found == False) :
+    while (i < length(kepemilikan)) and (found == False) :
         if (kepemilikan[i][1] == (user_id_login)) :
             found = True
         else : 
@@ -43,11 +44,12 @@ def arraybaru(array) :
 
 # Program UTAMA 
 # F09
-def list_game() :
+def list_game(folder, user_id) :
 # prosedur list_game adalah prosedur untuk melihat game yang dimiliki oleh user
-
+    kepemilikan = folder[1]
+    game = folder[0]
     # cek apakah user memiliki game atau tidak
-    valid1 = adagame(user_id)
+    valid1 = adagame(user_id, kepemilikan)
     
     if valid1 == True : # user memiliki game
         print("Daftar Game : ")

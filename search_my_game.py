@@ -1,4 +1,5 @@
 from list_game import adagame, arraybaru, arraykosong, list_game
+from Function import length
 
 def isInputValid (thing) :
 # prosedur isInputValid berfungsi untuk mengecek apakah input kosong/tidak
@@ -12,7 +13,7 @@ def isInputValid (thing) :
         Cek = False
     return Cek 
 
-def gamecocok(user_id,game_id) :
+def gamecocok(user_id,game_id, kepemilikan) :
 # proses untuk mencari apakah suatu game dipunyai oleh seorang user
 # I.S user id dan game id terdefenisi
 # F.S Boolean True/False
@@ -28,7 +29,7 @@ def gamecocok(user_id,game_id) :
     else : 
         return False
 
-def tahun_game_cocok(game_id,tahun):
+def tahun_game_cocok(game_id,tahun, game):
 # prosedur tahun_game_cocok berfungsi untuk mencocokan game id dengan tahun
 # I.S game id dan tahun terdefinsi
 # F.S Boolean True/False
@@ -48,9 +49,11 @@ def tahun_game_cocok(game_id,tahun):
 
 # PROGRAM UTAMA 
 # F10
-def search_my_game() :
+def search_my_game(folder, user_id) :
 # prosedur search_my_game berfungsi untuk melihat game yang dimiliki oleh user dengan input game id 
 # dan tahun rilis game (salah satu boleh kosong)
+    game = folder[0]
+    kepemilikan = folder[1]
     # input game id dan tahun rilis
     game_id = input("Masukkan ID Game: ")
     tahun_rilis = input("Masukkan Tahun Rilis Game: ")
@@ -62,7 +65,7 @@ def search_my_game() :
     # jika game id dan tahun rilis terdefenisi
     if (game_id_ada == True) and (tahun_rilis_ada == True) : 
         # cek user memiliki game atau tidak
-        valid1 = adagame(user_id)
+        valid1 = adagame(user_id, kepemilikan)
         
         # user tidak memiliki game
         if valid1 == False :
@@ -71,8 +74,8 @@ def search_my_game() :
             print("Daftar game pada inventory yang memenuhi kriteria:")
             
             # cek input game id dimiliki oleh user atau tidak
-            valid2 = gamecocok(user_id,game_id)
-            valid3 = tahun_game_cocok(game_id,tahun_rilis)
+            valid2 = gamecocok(user_id,game_id, kepemilikan)
+            valid3 = tahun_game_cocok(game_id,tahun_rilis, game)
             
             # game dimiliki user dan tahun rilis cocok
             if (valid2 == True) and (valid3 == True):
@@ -146,7 +149,7 @@ def search_my_game() :
             print("Daftar game pada inventory yang memenuhi kriteria:")
             
             # pengecekan user memiliki game yang dicari atau tidak
-            valid2 = gamecocok(user_id,game_id)
+            valid2 = gamecocok(user_id,game_id, kepemilikan)
             if valid2 == True : # jika user memiliki game yang dicari
                 # proses pengecekan data id dengan data game.csv dan dilakukan output data nya 
                 b = 0
