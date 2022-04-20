@@ -1,4 +1,4 @@
-from csv_parser import readFile
+from csv_parser import save
 from Function import length
 
 #Algoritma Utama
@@ -61,6 +61,7 @@ def ubah_game(folder):
                     store_file[game_Number][3]=str(game_release)
                 if Temp_game_Price!='':
                     store_file[game_Number][4]=str(game_Price)
+                save(folder)
                 valid=True
 
         #Menampilkan pesan error jika terjadi kesalahan tipe data

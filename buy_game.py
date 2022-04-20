@@ -1,6 +1,7 @@
 import datetime 
 from Function import length
 from datetime import date
+from csv_parser import save
 today = date.today()
 tahun = today.year
 #
@@ -241,6 +242,7 @@ def buy_game(folder, user_id) :
         
         # jika berhasil dibeli, maka program akan mengeluarkan seperti yang ada di bawah ini
         print("Game " + namagame + " berhasil dibeli!") 
+        save(folder)
         
     elif valid1 == False : # jika game id tidak ada
         print ("Game tidak ditemukan")

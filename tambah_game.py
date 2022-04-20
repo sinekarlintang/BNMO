@@ -1,4 +1,4 @@
-from csv_parser import readFile, appendFile
+from csv_parser import save
 from Function import length
 
 #Algoritma Utama
@@ -54,6 +54,7 @@ def tambah_game(folder):
 
     #Menampilkan pesan keberhasilan dalam penambahan game
     print("Selamat! Berhasil menambahkan '", game_Name, "'")
+    save(folder)
     
 """
 #Menambahkan variabel data baru game ke dalam csv file (Utk sekarang diimplementasikan langsung ke dalam csv karena blm ada save() dan load())

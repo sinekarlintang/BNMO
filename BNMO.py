@@ -12,6 +12,10 @@ from search_game_at_store import search_game_at_store
 from search_my_game import search_my_game
 from list_game import list_game
 from buy_game import buy_game
+from exit import Exit
+from help import help
+from Topup import Topup
+from history import history
 
 # start the program : python BNMO.py csvfolder
 
@@ -34,15 +38,14 @@ def admin(folder):
         search_game_at_store(folder)
         admin(folder)
     elif choice == "help":
-        # isi dengan nama fungsinya
+        help()
         admin(folder)
     elif choice == "save":
         save(folder)
     elif choice == "exit":
-        # isi dengan nama fungsinya
-        exit()
+        Exit()
     elif choice == "topup":
-        # isi dengan nama fungsinya
+        Topup(folder)
         admin(folder)
     else:
         print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
@@ -67,16 +70,15 @@ def user(folder,id):
         search_game_at_store(folder)
         user(folder,id)
     elif choice == "help":
-        # isi dengan nama fungsinya
+        help()
         user(folder,id)
     elif choice == "save":
         save(folder)
         user(folder,id)
     elif choice == "exit":
-        # isi dengan nama fungsinya
-        exit()
+        Exit()
     elif choice == "riwayat":
-        # isi dengan nama fungsinya
+        history(folder,id)
         user(folder,id)
     else:
         print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
@@ -114,4 +116,4 @@ for (root,dirs,files) in os.walk(args.foldername, topdown=True):
 if loaded :
     main(matrix)
 else :
-    print("Nama folder tidak ditemukan")
+    print(f"Folder {args.foldername} tidak ditemukan")

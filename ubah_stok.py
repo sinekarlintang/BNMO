@@ -1,4 +1,4 @@
-from csv_parser import readFile
+from csv_parser import save
 from Function import length
 
 #ALgoritma Utama
@@ -43,6 +43,7 @@ def ubah_stok(folder):
                 current_stock= int(store_files[game_ID][5]) + int(stock_change)
                 store_files[game_ID][5]=str(current_stock)
                 print("Stok game '", store_files[game_ID][1], "' berhasil ", change + ". Stok sekarang: ", store_files[game_ID][5])
+                save(folder)
                 break
         
         #Menampilkan pesan jika tipe data yang diinput tidak sesuai
