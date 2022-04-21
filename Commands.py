@@ -1,5 +1,6 @@
 from csv_parser import appendMatrix,cari,save
 from Function import length
+from Cipher import encrypt, decrypt
 
 def register(folder):
     print("Daftarkan akun Anda")
@@ -8,11 +9,12 @@ def register(folder):
     nama = str(input("Masukkan nama : "))
     username = str(input("Masukkan username : "))
     password = str(input("Masukkan password : "))
+    encrypted = encrypt(password)
     role = "user"
     saldo = 0
     cekUsername = cari(userfile, "username", username, "id")
     if cekUsername == "x":
-        folder[3] = appendMatrix(userfile, [str(id),username,nama,password,role,str(saldo)])
+        folder[3] = appendMatrix(userfile, [str(id),username,nama,encrypted,role,str(saldo)])
         save(folder)
     else:
         print("Username sudah terpakai. Silakan ganti username.")
@@ -24,8 +26,9 @@ def login(folder):
     inputUsername = str(input("Masukkan username : "))
     inputPassword = str(input("Masukkan password : "))
     password = cari(file, "username", inputUsername, "password")
+    decrypted = decrypt(password)
     id = cari(file, "username", inputUsername, "id")
-    if password == inputPassword:
+    if decrypted == inputPassword:
         return id
     else:
         print("Password atau username salah atau tidak ditemukan.")

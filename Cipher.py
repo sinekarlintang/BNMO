@@ -1,24 +1,31 @@
 a = 3
 b = 5
-m = 64
+m = 256
 
-def cipher(x):
+def affine(a,b,m,x):
+    y = (ord(x)*a + b) % m
+    return chr(y)
 
-    y = (ord(x)*a + b) % 64
-    return y
+def unaffine(a,b,m,x):
+    y = (modInverse(a,m) * (ord(x) - b)) % m
+    return chr(y)
 
-def decrypt(x):
-    y = (modInverse(3,64) * (ord(x) - 5)) % 64
-    return y
 def modInverse(a, m):
     for x in range(1, m):
         if (((a%m) * (x%m)) % m == 1):
             return x
     return -1
 
-# Driver Code
+def encrypt(password):
+    input = str(password)
+    encrypted = ""
+    for char in input:
+        encrypted += affine(a,b,m,char)
+    return encrypted
 
-# m diganti ato dibatesin
-# Function call
-print(cipher("a"))
-print(decrypt("("))
+def decrypt(password):
+    input = str(password)
+    decrypted = ""
+    for char in input:
+        decrypted += unaffine(a,b,m,char)
+    return decrypted
