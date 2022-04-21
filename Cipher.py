@@ -1,6 +1,6 @@
 a = 3
 b = 5
-m = 256
+m = 127
 
 def affine(a,b,m,x):
     y = (ord(x)*a + b) % m

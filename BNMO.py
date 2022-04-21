@@ -24,22 +24,22 @@ def admin(folder,id):
     choice = str(input("Masukkan perintah : "))
     if choice == "tambah_game":
         tambah_game(folder)
-        admin(folder)
+        admin(folder,id)
     elif choice == "ubah_stok":
         ubah_stok(folder)
-        admin(folder)
+        admin(folder,id)
     elif choice == "ubah_game":
         ubah_game(folder)
-        admin(folder)
+        admin(folder,id)
     elif choice == "list_game_toko":
         list_game_toko(folder)
-        admin(folder)
+        admin(folder,id)
     elif choice == "search_game_at_store":
         search_game_at_store(folder)
-        admin(folder)
+        admin(folder,id)
     elif choice == "help":
         help()
-        admin(folder)
+        admin(folder,id)
     elif choice == "save":
         save(folder)
     elif choice == "exit":
@@ -50,10 +50,10 @@ def admin(folder,id):
             Exit()
     elif choice == "topup":
         Topup(folder)
-        admin(folder)
+        admin(folder,id)
     else:
         print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
-        admin(folder)
+        admin(folder,id)
 
 def user(folder,id):
     UI.usermenu(folder,id)

@@ -60,7 +60,7 @@ def writeFile(X, Y, Z): # X: Nama file csv (str; File boleh ada dan tidak; Ex: "
     #Menghitung jumlah baris
     count=length(Y)
 
-    with open(X, 'w+') as file1:
+    with open(X, 'w+', encoding="utf-8") as file1:
         for i in range (count):
             for j in range (Z):
                 file1.write(Y[i][j])
