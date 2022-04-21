@@ -1,4 +1,4 @@
-from csv_parser import readFile,writeFile,appendMatrix,cari,changevalue,save
+from csv_parser import appendMatrix,cari,save
 from Function import length
 
 def register(folder):
@@ -22,7 +22,7 @@ def login(folder):
     print("Selamat datang kembali.")
     file = folder[3]
     inputUsername = str(input("Masukkan username : "))
-    inputPassword = str(input("Masukkan password"))
+    inputPassword = str(input("Masukkan password : "))
     password = cari(file, "username", inputUsername, "password")
     id = cari(file, "username", inputUsername, "id")
     if password == inputPassword:
@@ -31,8 +31,8 @@ def login(folder):
         print("Password atau username salah atau tidak ditemukan.")
         login(folder)
 
-def gantiPassword():
+"""def gantiPassword():
     file = readFile("user.csv")
     changevalue(file, "password", "3", "143")
     print(file)
-    writeFile("user.csv", file, 6)
+    writeFile("user.csv", file, 6)"""

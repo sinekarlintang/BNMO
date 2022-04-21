@@ -19,8 +19,8 @@ from history import history
 
 # start the program : python BNMO.py csvfolder
 
-def admin(folder):
-    UI.adminmenu()
+def admin(folder,id):
+    UI.adminmenu(folder,id)
     choice = str(input("Masukkan perintah : "))
     if choice == "tambah_game":
         tambah_game(folder)
@@ -52,7 +52,7 @@ def admin(folder):
         admin(folder)
 
 def user(folder,id):
-    UI.usermenu()
+    UI.usermenu(folder,id)
     choice = str(input("Masukkan perintah : "))
     if choice == "buy_game":
         buy_game(folder,id)
@@ -116,4 +116,4 @@ for (root,dirs,files) in os.walk(args.foldername, topdown=True):
 if loaded :
     main(matrix)
 else :
-    print(f"Folder {args.foldername} tidak ditemukan")
+    print(f"Folder '{args.foldername}' tidak ditemukan")
