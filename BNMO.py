@@ -12,7 +12,7 @@ from search_game_at_store import search_game_at_store
 from search_my_game import search_my_game
 from list_game import list_game
 from buy_game import buy_game
-from exit import Exit
+from exit import Exit, isExitConfirmed
 from help import help
 from Topup import Topup
 from history import history
@@ -43,7 +43,11 @@ def admin(folder,id):
     elif choice == "save":
         save(folder)
     elif choice == "exit":
-        Exit()
+        isExitConfirmed()
+        if isExitConfirmed:
+            Exit()
+        else:
+            Exit()
     elif choice == "topup":
         Topup(folder)
         admin(folder)
@@ -76,7 +80,11 @@ def user(folder,id):
         save(folder)
         user(folder,id)
     elif choice == "exit":
-        Exit()
+        isExitConfirmed()
+        if isExitConfirmed:
+            Exit()
+        else:
+            Exit()
     elif choice == "riwayat":
         history(folder,id)
         user(folder,id)
@@ -100,8 +108,11 @@ def main(matrix):
         elif role == "admin":
             admin(matrix, id)
     elif choice == "exit":
-        print("Sampai jumpa lagi!")
-        exit()
+        isExitConfirmed()
+        if isExitConfirmed:
+            Exit()
+        else:
+            Exit()
     
 loaded = False
 parser = argparse.ArgumentParser()
