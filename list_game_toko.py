@@ -96,3 +96,5 @@ def list_game_toko(folder):
         show_list(harga, "des", store_files, count)
     else:
         print("Skema sorting tidak valid!")
+
+# pakai limitcharacter di history

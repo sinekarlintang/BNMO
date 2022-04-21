@@ -428,3 +428,4 @@ def search_game_at_store(folder) :
                 j += 1
                 i += 1
                 break
+# perbaiki dekomposisi

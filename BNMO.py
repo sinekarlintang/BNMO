@@ -128,3 +128,6 @@ if loaded :
     main(matrix)
 else :
     print(f"Folder '{args.foldername}' tidak ditemukan")
+
+
+# harus ada validasi

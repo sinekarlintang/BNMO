@@ -1,7 +1,9 @@
+a = 3
+b = 5
+m = 64
+
 def cipher(x):
-    a = 3
-    b = 5
-    
+
     y = (ord(x)*a + b) % 64
     return y
 
@@ -15,9 +17,8 @@ def modInverse(a, m):
     return -1
 
 # Driver Code
-a = 3
-m = 64
 
+# m diganti ato dibatesin
 # Function call
 print(cipher("a"))
 print(decrypt("("))

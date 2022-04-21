@@ -17,6 +17,7 @@ def listAppend(listIn, elmt):
         else:
             listOut[i]=listIn[i]
     return listOut
+# ditaro di file terpisah
 
 #csv to list
 def csvToList(fileName):
