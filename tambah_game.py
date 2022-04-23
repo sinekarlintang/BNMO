@@ -1,4 +1,4 @@
-from csv_parser import save
+from csv_parser import appendMatrix, save
 from Function import length
 
 #Algoritma Utama
@@ -51,7 +51,8 @@ def tambah_game(folder):
 
     #Memasukkan seluruh data baru yang diinput ke dalam suatu variabel
     new_Data=[game_id, game_Name, game_Genre, str(game_release), str(game_Price), str(game_Stock)]
-
+    File2 = appendMatrix(File1,new_Data)
+    folder[0] = File2
     #Menampilkan pesan keberhasilan dalam penambahan game
     print("Selamat! Berhasil menambahkan '", game_Name, "'")
     save(folder)

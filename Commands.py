@@ -11,7 +11,7 @@ def register(folder):
     password = str(input("Masukkan password : "))
     encrypted = encrypt(password)
     role = "user"
-    saldo = 0
+    saldo = 1000000
     cekUsername = cari(userfile, "username", username, "id")
     if cekUsername == "x":
         folder[3] = appendMatrix(userfile, [str(id),username,nama,encrypted,role,str(saldo)])
@@ -32,7 +32,8 @@ def login(folder):
         return id
     else:
         print("Password atau username salah atau tidak ditemukan.")
-        login(folder)
+        return login(folder)
+
 
 """def gantiPassword():
     file = readFile("user.csv")

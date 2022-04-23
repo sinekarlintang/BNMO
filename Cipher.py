@@ -1,13 +1,15 @@
 a = 3
 b = 5
-m = 127
+m = 95
 
 def affine(a,b,m,x):
-    y = (ord(x)*a + b) % m
+    z = ord(x)-31
+    y = ((z*a + b) % m)+31
     return chr(y)
 
 def unaffine(a,b,m,x):
-    y = (modInverse(a,m) * (ord(x) - b)) % m
+    z = ord(x)-31
+    y = ((modInverse(a,m) * (z - b)) % m)+31
     return chr(y)
 
 def modInverse(a, m):
@@ -29,3 +31,6 @@ def decrypt(password):
     for char in input:
         decrypted += unaffine(a,b,m,char)
     return decrypted
+
+print(decrypt("!"))
+print(encrypt("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_"))

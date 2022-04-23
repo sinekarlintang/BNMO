@@ -125,7 +125,6 @@ def appendMatrix(file, stuff):
     matrix[length(matrix)-1] = stuff
     return matrix
 
-
 def save(stuff):
     choice = str(input("Apakah perubahan ingin disimpan? (Y/N) : "))
     if choice == "Y":
