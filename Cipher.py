@@ -3,13 +3,19 @@ b = 5
 m = 95
 
 def affine(a,b,m,x):
-    z = ord(x)-31
-    y = ((z*a + b) % m)+31
+    if x == "f": # pengecualian untuk "f" karena kalau di-encrypt jadi ";" bisa ngerusak csv
+        y = 33
+    else:
+        z = ord(x)-31
+        y = ((z*a + b) % m)+31
     return chr(y)
 
 def unaffine(a,b,m,x):
-    z = ord(x)-31
-    y = ((modInverse(a,m) * (z - b)) % m)+31
+    if x == "!":
+        y = 102
+    else:
+        z = ord(x)-31
+        y = ((modInverse(a,m) * (z - b)) % m)+31
     return chr(y)
 
 def modInverse(a, m):
@@ -32,5 +38,5 @@ def decrypt(password):
         decrypted += unaffine(a,b,m,char)
     return decrypted
 
-print(decrypt("!"))
-print(encrypt("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_"))
+print(decrypt("!,e!,e2,eeV"))
+print(encrypt("fatfatcatto"))
