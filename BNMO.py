@@ -113,6 +113,9 @@ def main(matrix):
             Exit()
         else:
             Exit()
+    else:
+        print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
+        main(matrix)
     
 loaded = False
 parser = argparse.ArgumentParser()
