@@ -38,10 +38,3 @@ def login(folder):
     else:
         print("Password atau username salah atau tidak ditemukan.")
         return login(folder)
-
-
-"""def gantiPassword():
-    file = readFile("user.csv")
-    changevalue(file, "password", "3", "143")
-    print(file)
-    writeFile("user.csv", file, 6)"""

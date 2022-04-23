@@ -123,11 +123,7 @@ for (root,dirs,files) in os.walk(args.foldername, topdown=True):
     for i in range (length(files)):
         matrix[i] = readFile(f"{args.foldername}/{files[i]}")
     loaded = True
-
 if loaded :
     main(matrix)
 else :
     print(f"Folder '{args.foldername}' tidak ditemukan")
-
-
-# harus ada validasi
