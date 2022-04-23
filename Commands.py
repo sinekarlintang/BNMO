@@ -6,7 +6,8 @@ def register(folder):
     print("Daftarkan akun Anda")
     userfile = folder[3]
     id = length(userfile)
-    nama = str(input("Masukkan nama : "))
+    name = str(input("Masukkan nama : "))
+    nama = validasi(name, "nama")
 
     uname = str(input("Masukkan username : "))
     username = validasi(uname, "username")
