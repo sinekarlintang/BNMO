@@ -4,7 +4,7 @@ m = 95
 
 def affine(a,b,m,x):
     if x == "f": # pengecualian untuk "f" karena kalau di-encrypt jadi ";" bisa ngerusak csv
-        y = 33
+        y = 33   # hasil enkripsi "f" dijadiin "!" karena di antara alfabet, angka, strip, dan underscore gaada yg hasil enkripsinya "!"
     else:
         z = ord(x)-31
         y = ((z*a + b) % m)+31
@@ -37,6 +37,3 @@ def decrypt(password):
     for char in input:
         decrypted += unaffine(a,b,m,char)
     return decrypted
-
-print(decrypt("!,e!,e2,eeV"))
-print(encrypt("fatfatcatto"))

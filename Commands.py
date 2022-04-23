@@ -1,5 +1,5 @@
 from csv_parser import appendMatrix,cari,save
-from Function import length
+from Function import length, validasi
 from Cipher import encrypt, decrypt
 
 def register(folder):
@@ -7,12 +7,18 @@ def register(folder):
     userfile = folder[3]
     id = length(userfile)
     nama = str(input("Masukkan nama : "))
-    username = str(input("Masukkan username : "))
-    password = str(input("Masukkan password : "))
+
+    uname = str(input("Masukkan username : "))
+    username = validasi(uname, "username")
+
+    password0 = str(input("Masukkan password : "))
+    password = validasi(password0, "password")
+    
     encrypted = encrypt(password)
     role = "user"
     saldo = 1000000
     cekUsername = cari(userfile, "username", username, "id")
+    print([str(id),username,nama,encrypted,role,str(saldo)])
     if cekUsername == "x":
         folder[3] = appendMatrix(userfile, [str(id),username,nama,encrypted,role,str(saldo)])
         save(folder)
