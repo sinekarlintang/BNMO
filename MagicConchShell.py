@@ -1,5 +1,6 @@
 from time import localtime, time
 from Function import length
+from UI import header
 
 #Mencari output LCG (Linear Congruential Generator)
 def LCG(Y):
@@ -10,7 +11,7 @@ def LCG(Y):
     #Menentukan output LCG
     cng=(a*Y)%m
     return str(int(cng))
-
+header("MAGIC CONCH SHELL")
 #Meminta pertanyaan user
 Q=input("Silahkan ajukan pertanyaan: ")
 

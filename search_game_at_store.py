@@ -1,5 +1,5 @@
-from search_my_game import isInputValid
 from Function import length
+from history import limitCharacters
 
 #####################################################################################################
 
@@ -7,425 +7,50 @@ from Function import length
 # F11
 def search_game_at_store(folder) :
 # prosedur ini berfungsi untuk mencari game dengan kriteria tertentu di toko
-    # inisiasi input 
     game = folder[0]
+    # inisiasi input 
     game_id = input("Masukkan ID Game: ")
     nama_game = input("Masukkan Nama Game: ")
     harga_game = input("Masukkan Harga Game: ")
     kategori = input("Masukkan Kategori Game: ")
     tahun_rilis = input("Masukkan Tahun Rilis Game: ")
     print()
+    
     # semua input valid/terdefinisi
-    if (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][4] == harga_game and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-            
-    # input game_id tidak terdefinsi       
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][4] == harga_game and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-            
-    # input nama_game tidak terdefinsi              
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][4] == harga_game and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-            
-    # input harga_game tidak terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # input kategori tidak terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][4] == harga_game and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # input tahun_rilis tidak terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][4] == harga_game and game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria") 
-            
-    # input game_id dan nama_game tidak terdefinsi
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][4] == harga_game and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # input game_id dan harga_game tidak terdefinsi
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
+    array = [game_id,nama_game,kategori,tahun_rilis,harga_game] # agar urutannya sama dengan array game.csv
+    valid = [True,True,True,True,True]
     
-    # input game_id dan kategori tidak terdefinsi                
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][4] == harga_game and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
+    # cek apakah ada element kosong atau tidak
+    for i in range (length(array)) :
+        if array[i] == "" : # jika element kosong akan ditetapkan sebagai False
+            valid[i] = False
     
-    # input game_id dan tahun_rilis tidak terdefinsi
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
+    # jika semua input kosong ("") atau tidak ada masukan sama sekali 
+    if valid[0] == False and valid[1] == False and valid[2] == False and valid[3] == False and valid[4] == False : # semua input tidak valid/tidak terdefinisi
         print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][4] == harga_game and game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-    
-    # input nama_game dan harga_game tidak terdefinsi                
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-    
-    # input nama_game dan kategori tidak terdefinsi                 
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][4] == harga_game and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria") 
-
-    # input nama_game dan tahun_rilis tidak terdefinsi  
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][4] == harga_game and game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria") 
-
-    # input harga_game dan kategori tidak terdefinsi  
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")   
-
-    # input harga_game dan tahun_rilis tidak terdefinsi 
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][2] == kategori  : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # input kategori dan tahun_rilis tidak terdefinsi 
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game and game[i][4] == harga_game  : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input kategori dan tahun_rilis terdefinsi 
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][2] == kategori and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input harga_game dan tahun_rilis terdefinsi 
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][4] == harga_game and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input harga_game dan kategori terdefinsi 
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][4] == harga_game and game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input nama_game dan tahun_rilis terdefinsi
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input nama_game dan kategori terdefinsi
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input nama_game dan harga_game terdefinsi
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game and game[i][4] == harga_game : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-    
-    # hanya input game_id dan tahun_rilis terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input game_id dan kategori terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input game_id dan harga_game terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][4] == harga_game  : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0  : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input game_id dan nama_game terdefinsi
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id and game[i][1] == nama_game : 
-                while j < length(game) :
-                    print(str(j+1)+".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0 : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input tahun_rilis yang terdefinsi         
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == True) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][3] == tahun_rilis : 
-                while j < length(game) :
-                    print(str(j+1) +".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3])
-                    j += 1
-                    break
-        if j == 0 : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input nama_game yang terdefinsi          
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == True) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][1] == nama_game :
-                while j < length(game) :
-                    print(str(j+1) +".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3])
-                    j += 1
-                    break
-        if j == 0 : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-
-    # hanya input harga_game yang terdefinsi         
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == True) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][4] == harga_game :
-                while j < length(game) :
-                    print(str(j+1) +".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3])
-                    j += 1
-                    break
-        if j == 0 : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-    
-    # hanya input kategori yang terdefinsi         
-    elif (isInputValid(game_id) == False) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == True) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][2] == kategori : 
-                while j < length(game) :
-                    print(str(j+1) +".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3])
-                    j += 1
-                    break
-        if j == 0 : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-     
-    # hanya input game_id yang terdefinsi        
-    elif (isInputValid(game_id) == True) and (isInputValid(nama_game) == False) and (isInputValid(harga_game) == False) and (isInputValid(kategori) == False) and (isInputValid(tahun_rilis) == False) :
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        j = 0
-        for i in range (length(game)) : # proses pengecekan dan output
-            if game[i][0] == game_id  : 
-                while j < length(game) :
-                    print(str(j+1) +".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
-                    j += 1
-                    break
-        if j == 0 : # jika tidak ada input yang cocok
-            print("Tidak ada game pada toko yang memenuhi kriteria")
-            
-    else : # semua input tidak valid/tidak terdefinisi
-        print("Daftar game pada toko yang memenuhi kriteria:")
-        i = 1
+        i = 0
         j = 0
         while i < (length(game)) : # proses pengecekan dan output
             while j < length(game) :
-                print(str(j+1) +".",game[i][0] , "|", game[i][1], "|", game[i][4], "|" , game[i][2] , "|", game[i][3], "|", game[i][5])
+                print(f"{j+1}. {limitCharacters(game[i][0],7)} | {limitCharacters(game[i][1],20)} | {limitCharacters(game[i][2],12)} | {limitCharacters(game[i][3],7)} | {limitCharacters(game[i][4],7)}")
                 j += 1
                 i += 1
                 break
-# perbaiki dekomposisi
+            
+    else : # minimal satu input valid/terdefinisi (bukan "")
+        print("Daftar game pada toko yang memenuhi kriteria:")
+        k = 0
+        for i in (game) :
+            ada = True 
+            for j in range(length(array)) :
+                if i[j] != array[j] and (valid[j] == True):
+                    ada = False
+                elif not ada :
+                    break
+            if ada :
+                while (k < length(game)) :
+                    print(f"{k+1}. {limitCharacters(i[0],7)} | {limitCharacters(i[1],15)} | {limitCharacters(i[2],12)} | {limitCharacters(i[3],7)} | {limitCharacters(i[4],7)}")
+                    k += 1
+                    break
+        if k == 0 : 
+            print("Tidak ada game yang memenuhi kriteria")

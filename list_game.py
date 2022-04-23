@@ -1,4 +1,6 @@
 from Function import length
+from history import limitCharacters
+
 def adagame (user_id_login, kepemilikan) :
 # proses untuk mengecek terdapat game yang dibeli atau tidak
 # I.S user id yang login
@@ -68,7 +70,7 @@ def list_game(folder, user_id) :
         while (i < length(game_user_b)) :
             for j in range(length(game)) :
                 if game_user_b[i] == game[j][0] :
-                    print(str(i+1)+".", game[j][0], " | ", game[j][1], ' | ' , game[j][4], ' | ' , game[j][2], ' | ', game[j][3])
+                    print(f"{i+1}. {limitCharacters(game[i][0],7)} | {limitCharacters(game[i][1],20)} | {limitCharacters(game[i][2],12)} | {limitCharacters(game[i][3],7)} | {limitCharacters(game[i][4],7)}")
                     i += 1 
                     if i == length(game_user_b) : # jika i == panjang array game_user_b
                         break
@@ -76,4 +78,4 @@ def list_game(folder, user_id) :
                         continue
                     
     elif valid1 == False : # user tidak memiliki game
-        print("Maaf, kamu belum membeli game. Ketik perintah beli_game untuk beli")
+        print("Maaf, kamu belum membeli game. Ketik perintah buy_game untuk beli")

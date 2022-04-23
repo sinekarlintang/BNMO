@@ -1,10 +1,6 @@
 
-def addSaldo():
-    data_user = [['25001yaaya', 'Daffa Muhammad Rasyid', 'rsydaf', 'lalala', 'user', 0],
-                ['25002naans', 'Fauzan Nurul Huda', 'sansanee', 'sansan', 'user', 0],
-                ['25003ieaik', 'Keira Gassani', 'keigassani', 'keikei', 'user', 0]
-                ['25004masmn', 'Rahman Satya', 'rhmnsty', 'atangg', 'user', 0],
-                ['25005daada', 'Saddam Annais', 'saddam', 'annais', 'user', 0]]
+def addSaldo(folder):
+    data_user = folder[3]
     li = 0
     sumsaldo = 0
     stop = False

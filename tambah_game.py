@@ -1,8 +1,10 @@
 from csv_parser import appendMatrix, save
 from Function import length
+from UI import header
 
 #Algoritma Utama
 def tambah_game(folder):
+    header("TAMBAH GAME")
     #Load csv file 
     File1 = folder[0]
 

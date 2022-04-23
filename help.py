@@ -1,6 +1,6 @@
-
+from UI import header
 def help():
-    print('============ HELP ===========')
+    header("HELP")
     print('''
         1. login - Untuk melakukan login ke dalam sistem
         2. register - Untuk menambahkan akun ke dalam sistem

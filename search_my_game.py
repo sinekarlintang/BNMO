@@ -1,5 +1,6 @@
 from list_game import adagame, arraybaru, arraykosong, list_game
 from Function import length
+from history import limitCharacters
 
 def isInputValid (thing) :
 # prosedur isInputValid berfungsi untuk mengecek apakah input kosong/tidak
@@ -83,7 +84,7 @@ def search_my_game(folder, user_id) :
                 while j < 1 : 
                     for i in range (length(game)) :
                         if game[i][0] == (game_id) and game[i][3] == (tahun_rilis) :
-                            print(str(j+1)+".", game[i][0], " | ", game[i][1], ' | ' , game[i][4], ' | ' , game[i][2], ' | ', game[i][3])  
+                            print(f"{j+1}. {limitCharacters(game[i][0],7)} | {limitCharacters(game[i][1],20)} | {limitCharacters(game[i][2],12)} | {limitCharacters(game[i][3],7)} | {limitCharacters(game[i][4],7)}")  
                             j += 1
             else : # game tidak dimiliki user
                 print("Tidak ada game pada inventory-mu yang memenuhi kriteria")
@@ -91,12 +92,12 @@ def search_my_game(folder, user_id) :
     # hanya tahun rilis yang terdefinisi                 
     elif ((game_id_ada) == (False)) and ((tahun_rilis_ada) == True) : 
         # cek user memiliki game atau tidak
-        valid1 = adagame(user_id)
+        valid4 = adagame(user_id,kepemilikan)
         
         # user tidak memiliki game 
-        if valid1 == False :
+        if valid4 == False :
             print()
-        elif valid1 == True : # user memiliki game 
+        elif valid4 == True : # user memiliki game 
             # deklarasi array kosong dengan panjang data game.csv
             game_tahun = ["" for i in range (length(game))]
             
@@ -125,14 +126,14 @@ def search_my_game(folder, user_id) :
             game_user_baru = arraybaru(game_user)
             
             # cek jika array game_user_baru terdapat element / bukan array kosong 
-            if arraykosong(game_user_baru) != length(game_user_baru) : # array game_user_baru terdapat element
+            if game_user_baru[0] != "" : # array game_user_baru terdapat element
                 # proses pencocokan data game id dalam game_user_baru dengan data game.csv dan dilakukan output data nya
                 print("Daftar game pada inventory yang memenuhi kriteria:")
                 b = 0
                 while (b < length(game_user_baru)) :
                     for i in range (length(game)) :
                         if game_user_baru[b] == game[i][0] :
-                            print(str(b+1)+".", game[i][0], " | ", game[i][1], ' | ' , game[i][4], ' | ' , game[i][2], ' | ', game[i][3])  
+                            print(f"{b+1}. {limitCharacters(game[i][0],7)} | {limitCharacters(game[i][1],20)} | {limitCharacters(game[i][2],12)} | {limitCharacters(game[i][3],7)} | {limitCharacters(game[i][4],7)}")  
                             b += 1
                             if b == length(game_user_baru) :
                                 break
@@ -142,7 +143,7 @@ def search_my_game(folder, user_id) :
     # hanya game id yang terdefinisi                                                 
     elif ((game_id_ada) == (True)) and (tahun_rilis_ada) == False :
         # pengecekan user memiliki game atau tidak
-        valid1 = adagame(user_id)
+        valid1 = adagame(user_id,kepemilikan)
         if valid1 == False : # user tidak memiliki game
             print()
         elif valid1 == True : # user memiliki game
@@ -156,11 +157,11 @@ def search_my_game(folder, user_id) :
                 while (b < 1) :
                     for i in range (length(game)) :
                         if game_id == game[i][0] :
-                            print(str(b+1)+".", game[i][0], " | ", game[i][1], ' | ' , game[i][4], ' | ' , game[i][2], ' | ', game[i][3])  
+                            print(f"{b+1}. {limitCharacters(game[i][0],7)} | {limitCharacters(game[i][1],20)} | {limitCharacters(game[i][2],12)} | {limitCharacters(game[i][3],7)} | {limitCharacters(game[i][4],7)}")  
                             b += 1
                             if b == 1 :
                                 break
             else : # user tidak memiliki game yang dicari
                 print()
     else : # game id dan tahun rilis tidak terdefinisi
-        print(list_game())
+        print(list_game(folder, user_id))

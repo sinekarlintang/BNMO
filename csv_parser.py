@@ -126,8 +126,9 @@ def appendMatrix(file, stuff):
     return matrix
 
 def save(stuff):
+    print("\n============================ SAVE ============================\n")
     choice = str(input("Apakah perubahan ingin disimpan? (Y/N) : "))
-    if choice == "Y":
+    if choice == "Y" or choice =="y":
         folder = str(input("Masukkan nama folder : "))
         if not os.path.exists(folder):
             os.mkdir(folder)
@@ -138,7 +139,7 @@ def save(stuff):
         
         print("Perubahan berhasil tersimpan.")
         return True
-    elif choice == "N":
+    elif choice == "N"or choice == "n":
         print("Perubahan tidak tersimpan.")
         return False
         

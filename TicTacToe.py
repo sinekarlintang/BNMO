@@ -1,3 +1,4 @@
+from UI import header
 # Kumpulan Fungsi dan Prosedur
 
 #Menampilkan status papan
@@ -73,6 +74,7 @@ def full():
         
     return finish
 
+header("TIC TAC TOE")
 ###########################################################################
 
 #Algoritma Utama

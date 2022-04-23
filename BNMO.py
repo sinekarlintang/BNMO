@@ -16,6 +16,7 @@ from exit import Exit, isExitConfirmed
 from help import help
 from Topup import Topup
 from history import history
+from addSaldo import addSaldo
 
 # start the program : python BNMO.py csvfolder
 
@@ -48,8 +49,8 @@ def admin(folder,id):
             Exit()
         else:
             Exit()
-    elif choice == "topup":
-        Topup(folder)
+    elif choice == "top_up":
+        addSaldo(folder)
         admin(folder,id)
     else:
         print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
@@ -88,13 +89,18 @@ def user(folder,id):
     elif choice == "riwayat":
         history(folder,id)
         user(folder,id)
+    elif choice =="MagicConchShell":
+        os.system("python MagicConchShell.py")
+        user(folder,id)
+    elif choice =="TicTacToe":
+        os.system("python TicTacToe.py")
+        user(folder,id)
     else:
         print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
         user(folder,id)
 
 
 def main(matrix):
-    print("Selamat datang di BNMO!")
     UI.startmenu()
     choice = str(input("Masukkan perintah : "))
     if choice == "register":

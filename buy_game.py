@@ -1,7 +1,9 @@
 import datetime 
 from Function import length
 from datetime import date
-from csv_parser import save
+from csv_parser import appendMatrix, save
+from UI import header
+
 today = date.today()
 tahun = today.year
 #
@@ -38,15 +40,17 @@ def isSaldoCukup (user_id_login, game_id, user, game) :
         if (user[i][0] == (user_id_login)) :
             saldouser = int(user[i][5])
             found = True
+            break
         else : 
             i += 1
     # inisiasi 
     j = 0 
     found1 = False
     # pengecekan saldo user cukup atau tidak
-    while ((i < length(game))) and (found1 == False) : 
-        if (game[i][0] == game_id) and (int(saldouser) >= int(game[i][4])) :
+    while ((j < length(game))) and (found1 == False) : 
+        if (game[j][0] == game_id) and (int(saldouser) >= int(game[j][4])) :
             found1 = True
+            break
         else : 
             j += 1
     # jika cukup, akan mereturn true
@@ -209,6 +213,7 @@ def buy_game(folder, user_id) :
 # prosedur buy game berfungsi untuk membeli game 
 # I.S user id terdefinisi
 # F.S file data diupdate
+    header("BELI GAME")
     riwayat = folder[2]
     kepemilikan = folder[1]
     game = folder[0]
@@ -228,14 +233,18 @@ def buy_game(folder, user_id) :
         ubahsaldo(user_id, game_id, game, user) # ubah saldo user di dalama memori sementara
         
         # Proses pengisian data2 baru ke dalam list kosong (new_data_riwayat)
-        new_data_riwayat = [game_id, Game_name(game_id, game), hargagame(game_id, game), user_id, tahun]
+        new_data_riwayat = [game_id, Game_name(game_id, game), str(hargagame(game_id, game)), str(user_id), str(tahun)]
         
         # proses pengisian data2 baru ke dalam list kosong (new_data_kepemilikan)
-        new_data_kepemilikan = [game_id, user_id]
+        new_data_kepemilikan = [game_id, str(user_id)]
         
         # menambahkan data baru ke dalam array sementara (ntar klo dah ada save tinggal di replace file aja riwayat.csv + kepemilikan.csv nya)
         ubahriwayat(riwayat,new_data_riwayat)
         ubahkepemilikan(kepemilikan,new_data_kepemilikan)
+        riwayat2 = appendMatrix(riwayat,new_data_riwayat)
+        kepemilikan2 = appendMatrix(kepemilikan,new_data_kepemilikan)
+        folder[2] = riwayat2
+        folder[1] = kepemilikan2
         
         # mencari nama game (untuk keperluan output)
         namagame = Game_name(game_id, game)

@@ -1,6 +1,8 @@
 from Function import length
+from UI import header
 
 def Topup(folder):
+    header("TOP UP SALDO")
     userData = folder[3]
     usernameInput = str(input('Masukkan username: '))
     saldoInput = int(input("Masukkan saldo: "))

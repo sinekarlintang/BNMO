@@ -1,5 +1,5 @@
 # EXIT MODULE
-
+from UI import header
 import sys
 
 def Exit():
@@ -7,6 +7,7 @@ def Exit():
 
 
 def isExitConfirmed():
+    header("EXIT")
     confirm = str(
         input("Apakah Anda mau melakukan penyimpanan file yang sudah diubah? (y/n) "))
     while not isValidConfirmed(confirm):

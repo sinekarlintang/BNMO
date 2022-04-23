@@ -1,3 +1,4 @@
+from UI import header
 #length
 def length(object):
     count = 0
@@ -94,6 +95,7 @@ def limitCharacters(string, pjg): #Membatasi karakter sebanyak "pjg" (spasi dihi
     return finalString
 
 def history(folder,user_id):
+    header("RIWAYAT")
     user_id = str(user_id)
     userdata = folder[3]
     riwayat = folder[2]

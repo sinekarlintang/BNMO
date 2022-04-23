@@ -1,5 +1,6 @@
 from csv_parser import readFile, writeFile
 from Function import length
+from UI import header
 
 #Kumpulan Fungsi dan Prosedur 
 
@@ -66,6 +67,7 @@ def show_list(X, Y, store_files, count):
 #Algoritma Utama
 def list_game_toko(folder):
 #Load csv file
+    header("LIST GAME TOKO")
     store_files=folder[0]
     count=0
     for i in store_files:

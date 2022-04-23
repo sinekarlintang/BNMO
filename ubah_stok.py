@@ -1,8 +1,10 @@
 from csv_parser import save
 from Function import length
+from UI import header
 
 #ALgoritma Utama
 def ubah_stok(folder):
+    header("UBAH STOK GAME")
     #Inisialisasi
     store_files= folder[0]
     count=length(store_files)
