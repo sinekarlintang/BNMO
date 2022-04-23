@@ -1,7 +1,7 @@
 id;username;nama;password;role;saldo
 1;meatballs;boiledpotato;P8,e/,MMbZ]`cf;admin;0
 2;cheesecake;Sinekar Lintang;2A88b82,J8ZoN;user;1000000
-3;capuccino;sinekarlintang;2,Yh22DSVZoZWW`;user;1000000
+3;capuccino;sinekarlintang;2,Yh22DSVZoZWW`;user;950000
 4;sekaar;sinekarlintang;b8J,_ZoZWW`;user;1000000
 5;sekaaar;sekar;b8J,,,_;user;1000000
 6;sekar181003;sekar;b8J,_ZoZWW`;user;1000000
@@ -11,3 +11,5 @@ id;username;nama;password;role;saldo
 10;wooo;wooo;nVVV;user;1000000
 11;waaaa;waaaa;n,,,,;user;900000
 12;sekarr;sekarr;b8J,__;user;1000000
+13;boiledegg;KentangRebus;.VDM858>>Zo;user;1000000
+14;kentanggoreng;KentangGoreng;J8Se,S>>V_8S>Z]`;user;1000000

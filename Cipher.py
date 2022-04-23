@@ -37,3 +37,7 @@ def decrypt(password):
     for char in input:
         decrypted += unaffine(a,b,m,char)
     return decrypted
+
+"""# TEST
+print("Hasil enkripsi : " + encrypt("DasProIF1210"))
+print("Hasil dekripsi : " + decrypt("4,bX_VC:Z]ZW"))"""

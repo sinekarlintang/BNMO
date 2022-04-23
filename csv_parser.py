@@ -142,4 +142,6 @@ def save(stuff):
     elif choice == "N"or choice == "n":
         print("Perubahan tidak tersimpan.")
         return False
-        
+    else:
+        print("Perintah tidak diketahui!")
+        return save(stuff)
