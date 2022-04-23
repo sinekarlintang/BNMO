@@ -18,7 +18,6 @@ def register(folder):
     role = "user"
     saldo = 1000000
     cekUsername = cari(userfile, "username", username, "id")
-    print([str(id),username,nama,encrypted,role,str(saldo)])
     if cekUsername == "x":
         folder[3] = appendMatrix(userfile, [str(id),username,nama,encrypted,role,str(saldo)])
         save(folder)
