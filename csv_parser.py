@@ -72,7 +72,7 @@ def writeFile(X, Y, Z): # X: Nama file csv (str; File boleh ada dan tidak; Ex: "
 # def cari digunakan untuk mencari elemen pada suatu file csv
 # contoh : cari(readFile(user.csv), "id", "3", "username")
 # artinya : pada file user.csv, ingin dicari username milik pengguna dengan id "3"
-def cari(file, kategori, cari, hasil):
+def cari(file, kategori, cari, kategoricari):
     kategoriFound = False
     while kategoriFound == False:
         for j in range(length(file[0])):
@@ -82,7 +82,7 @@ def cari(file, kategori, cari, hasil):
     hasilFound = False
     while hasilFound == False:
         for k in range(length(file[0])):
-            if file[0][k] == hasil:
+            if file[0][k] == kategoricari:
                 y = k
                 hasilFound = True
     found = False

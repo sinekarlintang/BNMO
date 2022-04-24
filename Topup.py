@@ -16,12 +16,11 @@ def Topup(folder):
     id = getTopupId(userData, usernameInput)
     userData[id][5] = str(
         int(userData[id][5]) + saldoInput)
-
+    print("Top up saldo berhasil")
     return userData
 
 
-def isUsernameExist(folder, usernameInput):
-    userData = folder[3]
+def isUsernameExist(userData, usernameInput):
     usernameExist = False
     for i in range(length(userData) - 1):
         if (userData[i + 1][1] == usernameInput):
@@ -30,8 +29,7 @@ def isUsernameExist(folder, usernameInput):
     return usernameExist
 
 
-def getTopupId(folder, usernameInput):
-    userData = folder[3]
+def getTopupId(userData, usernameInput):
     for i in range(length(userData) - 1):
         if (userData[i + 1][1] == usernameInput):
             id = i + 1

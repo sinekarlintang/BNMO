@@ -16,7 +16,6 @@ from exit import Exit, isExitConfirmed
 from help import help
 from Topup import Topup
 from history import history
-from addSaldo import addSaldo
 
 # start the program : python BNMO.py csvfolder
 
@@ -43,6 +42,7 @@ def admin(folder,id):
         admin(folder,id)
     elif choice == "save":
         save(folder)
+        admin(folder,id)
     elif choice == "exit":
         isExitConfirmed()
         if isExitConfirmed:
@@ -50,7 +50,7 @@ def admin(folder,id):
         else:
             Exit()
     elif choice == "top_up":
-        addSaldo(folder)
+        Topup(folder)
         admin(folder,id)
     else:
         print("Perintah tak diketahui. Hanya bisa memasukkan perintah yang tertera.")
